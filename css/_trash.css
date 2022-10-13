@@ -1,0 +1,80 @@
+
+/*
+          <div class="glinda x">
+            <div class="glinda y"> <img class="grow" src="img/ask-me.gif"> </div>
+          </div>*/
+
+          
+/* CABEZA FLOTANDO */
+.glinda {
+  width: 300px;
+  height: 300px;
+  z-index: 200;
+  position: absolute;
+  z-index: -1;
+}
+.grow {
+  transition: all .3s ease-in-out;
+}
+
+.animated {
+  visibility: visible !important;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+}
+
+
+
+
+ @keyframes whiz {
+ 0% {
+ left: 100%;
+}
+ 100% {
+ left: -100%;
+}
+}
+@-webkit-keyframes whiz {
+ 0% {
+ left: 100%;
+}
+ 100% {
+ left: -100%;
+}
+}
+.x {
+  -webkit-animation: x 20s linear infinite alternate;
+  animation: x 20s linear infinite alternate;
+}
+.y {
+  -webkit-animation: y 10s linear infinite alternate;
+  animation: y 10s linear infinite alternate;
+}
+ @-webkit-keyframes x {
+ 100% {
+ -webkit-transform: translateX(calc(100vw - 300px));
+ transform: translateX(calc(100vw - 300px));
+}
+}
+ @keyframes x {
+ 100% {
+ -webkit-transform: translateX(calc(100vw - 300px));
+ transform: translateX(calc(100vw - 300px));
+}
+}
+@-webkit-keyframes y {
+ 100% {
+ -webkit-transform: translateY(calc(100vh - 300px));
+ transform: translateY(calc(100vh - 300px));
+}
+}
+@keyframes y {
+ 100% {
+ -webkit-transform: translateY(calc(100vh - 300px));
+ transform: translateY(calc(100vh - 300px));
+}
+}
