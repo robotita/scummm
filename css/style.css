@@ -54,7 +54,19 @@ h1 {font-size: 8rem;}
 h3 {font-size: 3rem; margin-bottom:20px;}
 h4 {font-size: 2rem; margin-bottom:20px; text-transform: none}
 
+p {margin-top:0}
+
 .is-blanco {color: #FFF}
+.separador {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  overflow: hidden;
+  word-break: break-all;
+  margin-top: -80px;
+  animation: 4s titila cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
 
 
 /* ===== Initializr Styles ======= */
@@ -198,12 +210,41 @@ html {
 }
 
 img { max-width: 100%;}
-.row {
-  display: flex;
-}
 
+.columns {
+  display: flex;
+  margin-left: -.75rem;
+  margin-right: -.75rem;
+  margin-top: -.75rem;
+}
+.columns:not(:last-child) {
+  margin-bottom: calc(1.5rem - .75rem);
+}
+.column {
+  display: block;
+
+  padding: .75rem;
+}
+.column.is-3 {
+  width: 25%;
+}
+.column.is-4 {
+  width: 33.333%;
+}
 .column.is-6 {
   width: 50%;
+}
+
+.column.is-7 {
+  width: 58.333%;
+}
+
+.column.is-8 {
+  width: 66.666%;
+}
+
+.column.is-9 {
+  width: 75%;
 }
 
 .centered {
@@ -214,6 +255,7 @@ img { max-width: 100%;}
 
 .hidden { display : none; }
 
+.mt-50 {margin-top: 50px;}
 .mt-100 {margin-top: 100px;}
 /**/
 
@@ -225,31 +267,46 @@ img { max-width: 100%;}
 }
 
 
-/*CARROUSEL*/
+/*LUCAS ARTS*/
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 
 
 /*JUEGOS*/
-
-section .juego:nth-child(even) img {
-  order: 1;
-}
-.juego {
-  display: flex;
-  margin-top: 40px;
-  width: 50%;
+.juegos-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  border:2px solid #000
 }
 
-.juego h5 {
-  margin-bottom: 10px;
+.juegos-item {
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
-.juego .img {
+.juegos-item h5 {
+  font-size: 0.8rem;
+  margin-bottom: 30px;
+}
+
+.juegos-item img {
   width: 30%;
 }
 
-.juego .txt {
-  width: 70%;
-}
 
 
 @media all and (min-width: 801px) {
@@ -292,4 +349,14 @@ section .juego:nth-child(even) img {
 
 footer {
   padding: 20px 0;
+}
+
+
+/*ANIMACIONES*/
+
+@keyframes titila {
+  25% { opacity: 0.5;  }
+  50% { opacity: 0.25; margin-top:-180px }
+  75% { opacity: 0.15; text-align: right;}
+  100% { opacity: 0.5;  }
 }
