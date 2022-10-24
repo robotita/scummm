@@ -16,7 +16,7 @@ html {
   font-size: 1em;
   line-height: 1.25;
   scroll-behavior: smooth;
-}
+} 
 
 ::-moz-selection {
   background: red;
@@ -71,6 +71,13 @@ p {margin-top:0}
 
 /* ===== Initializr Styles ======= */
 
+
+html {
+  width: 100%;
+  height: 100vh;
+}
+
+
 body {
   font-size: 16px;
   line-height: 1.5;
@@ -82,6 +89,9 @@ body {
   border-right: 40px solid #000;
   border-left: 40px solid #000;
 }
+
+img { max-width: 100%;}
+
 
 .container {
   max-width:1080px;
@@ -148,6 +158,56 @@ section .oscura {
 .contenido div {flex: 1; margin-right: 2%;}
 .contenido div img{width: 100%;}
 
+
+.columns {
+  display: flex;
+  margin-left: -.75rem;
+  margin-right: -.75rem;
+  margin-top: -.75rem;
+}
+.columns:not(:last-child) {
+  margin-bottom: calc(1.5rem - .75rem);
+}
+.column {
+  display: block;
+
+  padding: .75rem;
+}
+.column.is-3 {
+  width: 25%;
+}
+.column.is-4 {
+  width: 33.333%;
+}
+.column.is-6 {
+  width: 50%;
+}
+
+.column.is-7 {
+  width: 58.333%;
+}
+
+.column.is-8 {
+  width: 66.666%;
+}
+
+.column.is-9 {
+  width: 75%;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.is-hidden { display : none; }
+
+.mt-50 {margin-top: 50px;}
+.mt-100 {margin-top: 100px;}
+/**/
+
+
 #hola {  
   display: flex;
   margin-top: 10vh;
@@ -204,67 +264,16 @@ section .oscura {
   100% { opacity: 1;  transform: scale(1) rotatey(0)}
 }
 
-html {
-  width: 100%;
-  height: 100vh;
-}
-
-img { max-width: 100%;}
-
-.columns {
-  display: flex;
-  margin-left: -.75rem;
-  margin-right: -.75rem;
-  margin-top: -.75rem;
-}
-.columns:not(:last-child) {
-  margin-bottom: calc(1.5rem - .75rem);
-}
-.column {
-  display: block;
-
-  padding: .75rem;
-}
-.column.is-3 {
-  width: 25%;
-}
-.column.is-4 {
-  width: 33.333%;
-}
-.column.is-6 {
-  width: 50%;
-}
-
-.column.is-7 {
-  width: 58.333%;
-}
-
-.column.is-8 {
-  width: 66.666%;
-}
-
-.column.is-9 {
-  width: 75%;
-}
-
-.centered {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hidden { display : none; }
-
-.mt-50 {margin-top: 50px;}
-.mt-100 {margin-top: 100px;}
-/**/
-
 /*ASK ME*/
 #ask-me {
   max-width: 70%;
   margin:  40px auto 60px;
   justify-content: center;
 }
+#cabeza, #cabezarandom{
+  height: 240px;
+}
+
 
 
 /*LUCAS ARTS*/
@@ -360,3 +369,14 @@ footer {
   75% { opacity: 0.15; text-align: right;}
   100% { opacity: 0.5;  }
 }
+
+@keyframes color {
+  0%   { background: #a90cbd; }
+  20%  { background: #f104f2; }
+  40%  { background: #7c76f0; }
+  60%  { background: #fff91b; }
+  80%  { background: #00fcf9; }
+  100% { background: #000000; }
+}
+
+.animationcolor {animation: color 4s infinite linear;}
