@@ -10,7 +10,13 @@
        url(../fonts/scumm-font.woff2) format('woff2');
 }
 
-
+:root {
+  --color-primary: #04e434;
+  --color-secondary: #02881f;
+  --color-tertiary: #015b14 ; 
+  --color-quaternary:#002d0a;
+  --color-quinary: #000000;
+}
 html {
   color: #1f1d1c;
   font-size: 1em;
@@ -19,12 +25,14 @@ html {
 } 
 
 ::-moz-selection {
-  background: red;
+  background: #001705;
+  color:#FFF;
   text-shadow: none;
 }
 
 ::selection {
-  background: red;
+  background: #001705;
+  color:#FFF;
   text-shadow: none;
 }
 
@@ -148,6 +156,8 @@ section {
   min-height: 100vh;
   position: relative;
   margin-bottom: 60px;
+  scroll-snap-align: start;
+  scroll-margin-top: 100px;
 }
 
 section .oscura {
@@ -233,35 +243,80 @@ section .oscura {
   display: flex;
   align-items: flex-start;
 }
-.scumm span {
-  transform: scale(0.2, 1) rotatey(-10deg) translatey(0px);
-  animation: 2.2s taram cubic-bezier(0.45, 0, 0.55, 1) forwards;
-  transform-origin: 50% 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  opacity: 0;
-}
-.scumm span:nth-child(1) {
-  animation-delay: 140ms;
-}
-.scumm span:nth-child(2) {
-  animation-delay: 280ms;
-}
-.scumm span:nth-child(3) {
-  animation-delay: 420ms;
-}
-.scumm span:nth-child(4) {
-  animation-delay: 560ms;
-}
-.scumm span:nth-child(5) {
-  animation-delay: 700ms;
+
+.text_shadows {
+  text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary),
+    9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary);
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+  color: var(--color-primary);
+  animation: shadows 1.2s ease-in infinite, move 1.2s ease-in infinite;
+  letter-spacing: 0.4rem;
 }
 
-@keyframes taram {
-  25% { transform: scale(0.4) rotatey(-10deg); opacity: 0.25;  }
-  50% { opacity: 0.5; transform: scale(1) rotatey(0)  }
-  75% { opacity: 0.75; transform: scale(1) rotatey(0)}
-  100% { opacity: 1;  transform: scale(1) rotatey(0)}
+@keyframes shadows {
+  0% {
+    text-shadow: none;
+  }
+  10% {
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  20% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary);
+  }
+  30% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  40% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  50% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  60% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  70% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  80% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary);
+  }
+  90% {
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  40% {
+    transform: translate(-12px, -12px);
+  }
+  50% {
+    transform: translate(-12px, -12px);
+  }
+  60% {
+    transform: translate(-12px, -12px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
 }
 
 /*ASK ME*/
@@ -308,16 +363,222 @@ section .oscura {
 }
 
 .juegos-item h5 {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   margin-bottom: 30px;
+  line-height: 2.5;
 }
 
 .juegos-item img {
-  width: 30%;
+  height: 170px;
+}
+
+
+/* FORMULARIO */
+button {
+  overflow: visible;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, input, select, textarea {
+  margin: 0;
+}
+
+input {
+  line-height: normal;
+}
+
+textarea {
+  overflow: auto;
+}
+
+#formulario {
+  border: solid 3px #04e434;
+  max-width: 768px;
+  margin: 60px auto;
+  position: relative;
+}
+
+form {
+  padding: 37.5px;
+  margin: 50px 0;
+}
+
+#formulario h1 {
+  font-size: 22px;
+  margin-top: 20px;
+  letter-spacing: 7px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#formulario option {
+  background: #8C328A;
+}
+
+.underline {
+  border-bottom: solid 2px #04e434;
+  margin: -0.512em auto;
+  width: 80px;
+}
+
+.email {
+	float: right;
+	width: 45%;
+}
+
+input[type='text'], [type='email'], select, textarea {
+	background: none;
+  border: none;
+	border-bottom: solid 2px #04e434;
+	color: #04e434;
+	font-size: 1.000em;
+  font-weight: 400;
+  letter-spacing: 1px;
+	margin: 0em 0 1.875em 0;
+	padding: 0 0 0.875em 0;
+  text-transform: uppercase;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+input[type='text']:focus, [type='email']:focus, textarea:focus {
+	outline: none;
+	padding: 0 0 0.875em 0;
+}
+
+.mensaje {
+	float: none;
+}
+
+.name {
+	float: left;
+	width: 45%;
+}
+
+select {
+  background: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png') no-repeat right;
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.subject {
+  width: 100%;
+}
+
+textarea {
+	line-height: 150%;
+	height: 150px;
+	resize: none;
+  width: 100%;
+}
+
+::-webkit-input-placeholder {
+	color: #04e434;
+}
+
+:-moz-placeholder { 
+	color: #04e434;
+	opacity: 1;
+}
+
+::-moz-placeholder {
+	color: #04e434;
+	opacity: 1;
+}
+
+:-ms-input-placeholder {
+	color: #474544;
+}
+
+#form_button {
+  background: none;
+  border: solid 2px #04e434;
+  color: #04e434;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.875em;
+  font-weight: bold;
+  outline: none;
+  padding: 20px 35px;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+#form_button:hover {
+  background: #04e434;
+  color: #000;
+}
+
+#errorformulario {
+  text-align: center;
+  background: #000;
+  padding: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  #container {
+    margin: 20px auto;
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #formulario h1 {
+    font-size: 26px;
+  }
+  
+  .underline {
+    width: 68px;
+  }
+  
+  #form_button {
+    padding: 15px 25px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  #formulario h1 {
+    font-size: 18px;
+  }
+  
+  .underline {
+    width: 53px;
+  }
+  
+  input[type='text'], [type='email'], select, textarea {
+    font-size: 0.875em;
+  }
 }
 
 
 
+
+
+
+
+
+/*RESPONSIZE*/
 @media all and (min-width: 801px) {
   nav ul li {
     margin-right: 30px;
