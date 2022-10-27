@@ -768,9 +768,13 @@ h2 {
 }
 
 .juegos-container {
-  grid-template-columns: auto;
+  display: block;
   width: 90%;
   margin: 0 auto;
+}
+
+.juegos-item {
+  text-align: center;
 }
 
 #formulario{
