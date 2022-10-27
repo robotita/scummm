@@ -54,7 +54,7 @@ h5 {
   letter-spacing: 2px;
 }
 
-h1 {font-size: 8rem;}
+h1 {font-size: 5rem;}
 h3 {font-size: 3rem;}
 h4 {font-size: 2rem;}
 h5 {font-size: 1rem;  line-height: 2.4;}
@@ -594,6 +594,7 @@ textarea {
 footer {
   text-align: center;
   border-bottom: 40px solid #000;
+  word-wrap: break-word;
 }
 
 
@@ -647,7 +648,7 @@ footer {
 }
 
 /*MOBILE*/
-@media all and (max-width: 780px) {
+@media(max-width: 780px) {
   header {
     padding: 20px 0;
   }
@@ -760,7 +761,7 @@ h2 {
 }
 /*HOLA*/
 #hola h1 {
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 
 #ask-me #cabeza {
