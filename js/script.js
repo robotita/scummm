@@ -21,7 +21,6 @@ function rotar_imagen(arrImagenes, tiempo){
 
 rotar_imagen(arrCabeza, 300);
 
-
 function random() {
   rotar_imagen(arrCabezaRandom, 600);
   document.querySelector('body').classList.add("animationcolor");
@@ -52,3 +51,53 @@ function validateForm(event) {
     return false;
   } 
 }
+
+
+// API
+const ul = document.getElementById('emoticons'),
+url = 'https://emoji-api.com/emojis?access_key=1673254c99169f9f92b4bcb92788ed3f1ab557b7';
+
+const createNode = (element) => { return document.createElement(element); }
+const append = (parent, el) => { return parent.appendChild(el); }
+
+fetch(url)
+  .then((response) => { return response.json(); })
+  .then( data => {
+    let emoticons = data;
+    let random = Math.floor(Math.random() * 20);
+    let items = emoticons.slice(random/2, random) 
+    return items.map( emoticon => { 
+      let li = createNode('li'), 
+          span = createNode('span');
+      span.innerHTML = `${emoticon.character}`; 
+      append(li, span);
+      append(ul, li);
+    });
+  })
+  .catch( error => { console.log(error); })
+
+
+// IR ARRIBA
+  function trackScroll() {
+    var scrolled = window.pageYOffset;
+    var coords = document.documentElement.clientHeight;
+
+    if (scrolled > coords) {
+      goTopBtn.classList.add('back_to_top-show');
+    }
+    if (scrolled < coords) {
+      goTopBtn.classList.remove('back_to_top-show');
+    }
+  }
+
+  function backToTop() {
+    if (window.pageYOffset > 0) {
+      window.scrollBy(0, -800);
+      setTimeout(backToTop, 0);
+    }
+  }
+
+  var goTopBtn = document.querySelector('.back_to_top');
+
+  window.addEventListener('scroll', trackScroll);
+  goTopBtn.addEventListener('click', backToTop);

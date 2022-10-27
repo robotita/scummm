@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,600&display=swap');
 
 @font-face {
   font-family: 'scumm-font';
@@ -36,31 +36,28 @@ html {
   text-shadow: none;
 }
 
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
 textarea {
   resize: vertical;
 }
 
+a {color: unset;}
 h1,
 h2,
 h3,
 h4,
 h5 {
-  margin: 0;
+  margin: 0 0 20px 0;
   padding: 0;
   line-height: 2;
   font-family: 'scumm-font';
   text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 h1 {font-size: 8rem;}
-h3 {font-size: 3rem; margin-bottom:20px;}
-h4 {font-size: 2rem; margin-bottom:20px; text-transform: none}
+h3 {font-size: 3rem;}
+h4 {font-size: 2rem;}
+h5 {font-size: 1rem;  line-height: 2.4;}
 
 p {margin-top:0}
 
@@ -76,20 +73,20 @@ p {margin-top:0}
   animation: 4s titila cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
+.auto {margin: 0 auto;} 
 
-/* ===== Initializr Styles ======= */
 
-
+/* ============ */
 html {
   width: 100%;
   height: 100vh;
 }
 
-
 body {
   font-size: 16px;
   line-height: 1.5;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
+  /* font-family: 'Montserrat', sans-serif; */
   background: #8C328A;
   color: #04e434;
   padding: 0;
@@ -100,6 +97,7 @@ body {
 
 img { max-width: 100%;}
 
+.has-text-centered {text-align: center;}
 
 .container {
   max-width:1080px;
@@ -113,12 +111,14 @@ header {
   padding: 10px 0;
   background:  #000;
 }
+
+/*NAVEGACION*/
 nav {
   display: flex;
   justify-content: space-between;
   margin-top:10px;
   font-family: 'scumm-font';
-  font-size: 10px;
+  font-size:9px;
 }
 
 nav ul {
@@ -146,6 +146,18 @@ nav a:visited {
 nav a:hover {
   opacity: 0.8;
 }
+
+nav .menu {
+  clear: none;
+  float: right;
+  max-height: none;
+}
+
+nav .menu-btn {
+  display: none;
+}
+
+
 
 /* SECTIONS*/
 body section:nth-child(2n) h3 {
@@ -205,14 +217,11 @@ section .oscura {
   width: 75%;
 }
 
-.centered {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .is-hidden { display : none; }
 
+.mb-50 {margin-bottom: 50px;}
+.mb-100 {margin-bottom: 100px;}
 .mt-50 {margin-top: 50px;}
 .mt-100 {margin-top: 100px;}
 /**/
@@ -321,7 +330,6 @@ section .oscura {
 
 /*ASK ME*/
 #ask-me {
-  max-width: 70%;
   margin:  40px auto 60px;
   justify-content: center;
 }
@@ -372,6 +380,29 @@ section .oscura {
   height: 170px;
 }
 
+/* EMOTICONS */
+#api {
+  text-align: center;
+  width: 100%;
+  float: left;
+  margin-top: 20%;
+}
+#emoticons {
+  text-align: center;
+  padding: 0;
+}
+#emoticons li {
+  display: inline;
+  list-style: none;
+}
+
+/*LINKS*/
+
+#links img {
+  display: block;
+  height: 80px;
+  margin-bottom: 10px;
+}
 
 /* FORMULARIO */
 button {
@@ -420,8 +451,7 @@ form {
 
 .underline {
   border-bottom: solid 2px #04e434;
-  margin: -0.512em auto;
-  width: 80px;
+  width: 100%;
 }
 
 .email {
@@ -468,7 +498,6 @@ input[type='text']:focus, [type='email']:focus, textarea:focus {
 }
 
 select {
-  background: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png') no-repeat right;
   outline: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -536,20 +565,52 @@ textarea {
   padding: 10px;
 }
 
+/*ARRIBA*/
+.back_to_top {
+  position: fixed;
+  bottom: 30px;
+  right: 70px;
+  z-index: 9999;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background: #f5f5f5;
+  color: #444;
+  cursor: pointer;
+  border-radius: 2px;
+  display: none;
+}
+
+.back_to_top:hover {
+  background: #e9ebec;
+}
+
+.back_to_top-show {
+  display: block;
+}
+
+/*FOOTER*/
+footer {
+  text-align: center;
+  border-bottom: 40px solid #000;
+}
+
+
 @media screen and (max-width: 768px) {
-  #container {
-    margin: 20px auto;
-    width: 95%;
+  nav .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  nav .menu-icon {
+    display: none;
   }
 }
 
 @media screen and (max-width: 480px) {
   #formulario h1 {
     font-size: 26px;
-  }
-  
-  .underline {
-    width: 68px;
   }
   
   #form_button {
@@ -562,10 +623,6 @@ textarea {
     font-size: 18px;
   }
   
-  .underline {
-    width: 53px;
-  }
-  
   input[type='text'], [type='email'], select, textarea {
     font-size: 0.875em;
   }
@@ -574,11 +631,7 @@ textarea {
 
 
 
-
-
-
-
-/*RESPONSIZE*/
+/*TABLET*/
 @media all and (min-width: 801px) {
   nav ul li {
     margin-right: 30px;
@@ -592,22 +645,98 @@ textarea {
     background-color: lighten(goldenrod, 10%);
   }
 }
-@media all and (max-width: 500px) {
-  nav {
+
+/*MOBILE*/
+@media all and (max-width: 780px) {
+  header {
+    padding: 20px 0;
+  }
+
+  /*NAV*/
+  nav .menu {
+    width: 100%;
+    position: fixed;
+    top: 10px;
+    background: #000;
+    text-align: center;
+    left: 0;
+    top: 30px;
+  }
+
+  nav .menu li {
+    margin-bottom: 20px;
+  }
+
+  nav .menu-icon {
+    position: fixed !important;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    user-select: none;
+    right: 44px;
+    top: 18px;
+    z-index: 99;
+  }
+  
+  nav .menu-icon .navicon {
+    background: #FFF;
     display: block;
-    text-align: center;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
   }
-  nav ul {
-    flex-flow: column wrap;
-    padding: 0;
-    border-radius: 3px;
+  
+  nav .menu-icon .navicon:before,
+  nav .menu-icon .navicon:after {
+    background: #FFF;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
   }
-  nav ul a {
-    text-align: center;
-    border-top: 2px solid rgba(255, 255, 255, 0.2);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  
+  nav .menu-icon .navicon:before {
+    top: 5px;
   }
-}
+  
+  nav .menu-icon .navicon:after {
+    top: -5px;
+  }
+
+  nav .menu-btn {
+    display: none;
+  }
+  
+  nav .menu {
+    display: none;
+    opacity:0
+  }
+
+  nav .menu-btn:checked ~ .menu {
+    display:block;
+    transition: all 2s;
+    opacity: 1;
+  }
+  
+  nav .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  nav .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  nav .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
 
 .main {
   padding: 30px 0;
@@ -617,9 +746,52 @@ textarea {
   font-size: 2em;
 }
 
+.columns {
+  display: unset;
+}
+
+.column.is-4, .column.is-6, .column.is-8 {
+  width: 90%;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+}
+/*HOLA*/
+#hola h1 {
+  font-size: 2rem;
+}
+
+#ask-me #cabeza {
+  margin: -240px 0 80px;
+}
+
+.juegos-container {
+  grid-template-columns: auto;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#formulario{
+  width: 90%;
+}
+#formulario h1 {
+  font-size: 14px;
+  letter-spacing: 0px;
+}
 footer {
   padding: 20px 0;
+  text-align: center;
+  overflow: hidden;
 }
+
+footer h3 {
+  font-size:1rem
+}
+
+}
+
 
 
 /*ANIMACIONES*/
