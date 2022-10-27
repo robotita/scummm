@@ -144,7 +144,8 @@ nav a:visited {
 }
 
 nav a:hover {
-  opacity: 0.8;
+  opacity: 0.6;
+  transition: all 0.5s;
 }
 
 nav .menu {
@@ -335,6 +336,7 @@ section .oscura {
 }
 #cabeza, #cabezarandom{
   height: 240px;
+  margin:  0 auto;
 }
 
 
@@ -397,13 +399,25 @@ section .oscura {
 }
 
 /*LINKS*/
-
 #links img {
   display: block;
   height: 80px;
-  margin-bottom: 10px;
+  margin: 0 auto;
+}
+#links a {
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  display: block;
+  border: 1px solid;
+  text-align: center;
+  margin: 30px 40px;
 }
 
+#links a:hover {
+  background:#04e434;
+  color: #000;
+}
 /* FORMULARIO */
 button {
   overflow: visible;
@@ -764,8 +778,9 @@ h2 {
   font-size: 1.6rem;
 }
 
-#ask-me #cabeza {
-  margin: -240px 0 80px;
+#ask-me #cabeza,
+#ask-me #cabezarandom {
+  margin: -240px auto 80px;
 }
 
 .juegos-container {
